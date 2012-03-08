@@ -8,7 +8,6 @@
 package com.ericsson.javatraining.contacts.storage;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -73,13 +72,13 @@ public class StorageTest {
 
         testStorage.loadData();
         testContactRecord = SearchTool.getSearchRecordsString("Alex", testStorage);
-        assertEquals(testContactRecord, "Name\tPhoneNumber\tAddress\nAlex\t123456\tA street room5\n");
+        assertEquals("checkDataTest failed", testContactRecord, "Name\tPhoneNumber\tAddress\nAlex\t123456\tA street room5\n");
     }
 
     @Test
     public void setDataFileTest() throws IOException {
         testStorage.setDataFile("testPath:\testFile");
-        assertEquals(testStorage.getDataFile(), "testPath:\testFile");
+        assertEquals("setDataFileTest failed", testStorage.getDataFile(), "testPath:\testFile");
     }
 
     @Test
@@ -103,12 +102,9 @@ public class StorageTest {
         mockStatic(DocumentBuilderFactory.class);
         when(DocumentBuilderFactory.newInstance()).thenReturn(mockDocumentBuilderFactory);
         when(mockDocumentBuilderFactory.newDocumentBuilder()).thenThrow(testParserConfigurationException);
-        try {
-            testStorage.loadData();
-            testStorage.saveData();
-        } catch (Exception e) {
-            fail("saveDataExceptionTest exception captured.");
-        }
+
+        testStorage.loadData();
+        testStorage.saveData();
     }
 
     @Test
@@ -123,11 +119,7 @@ public class StorageTest {
 
         when(mockDocumentBuilder.parse(anyString())).thenThrow(testSAXException);
 
-        try {
-            testStorage.loadData();
-        } catch (Exception e) {
-            fail("loadDataExceptionTest exception captured.");
-        }
+        testStorage.loadData();
     }
 
     @Test
@@ -139,10 +131,6 @@ public class StorageTest {
         when(DocumentBuilderFactory.newInstance()).thenReturn(mockDocumentBuilderFactory);
         when(mockDocumentBuilderFactory.newDocumentBuilder()).thenThrow(testParserConfigurationException);
 
-        try {
-            testStorage.loadData();
-        } catch (Exception e) {
-            fail("loadDataParserConfigurationExceptionTest exception captured.");
-        }
+        testStorage.loadData();
     }
 }

@@ -54,7 +54,7 @@ public class SearchToolTest {
         testStorage.loadData();
         searchResult = SearchTool.getSearchRecordsString("NoSuchName", testStorage);
 
-        assertEquals(searchResult, "Record not found.");
+        assertEquals("testSearchRecordsWithNoRecord failed", searchResult, "Record not found.");
     }
 
     /**
@@ -70,7 +70,7 @@ public class SearchToolTest {
 
         testStorage.loadData();
         testContactRecord = SearchTool.getSearchRecordsString("Alex", testStorage);
-        assertEquals(testContactRecord, "Name\tPhoneNumber\tAddress\nAlex\t123456\tA street room5\n");
+        assertEquals("testSearchRecordsWithRecordFound failed",testContactRecord, "Name\tPhoneNumber\tAddress\nAlex\t123456\tA street room5\n");
     }
 
     /**

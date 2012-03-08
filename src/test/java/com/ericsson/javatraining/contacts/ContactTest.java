@@ -37,29 +37,29 @@ public class ContactTest {
 
     @Test
     public void testContactBuildup() {
-        assertEquals(testContact.getName(), "TestName");
-        assertEquals(testContact.getPhoneNumber(), "123456789011");
-        assertEquals(testContact.getAddress(), "Shanghai China");
+        assertEquals("testContactBuildup name fail", testContact.getName(), "TestName");
+        assertEquals("testContactBuildup phoneNumber fail", testContact.getPhoneNumber(), "123456789011");
+        assertEquals("testContactBuildup address fail", testContact.getAddress(), "Shanghai China");
     }
 
     @Test
     public void testSetName() {
         testContact.setName("Modified name");
 
-        assertEquals(testContact.getName(), "Modified name");
+        assertEquals("testSetName fail", testContact.getName(), "Modified name");
     }
 
     @Test
     public void testSetPhoneNumber() {
         testContact.setPhoneNumber("1198838383891");
 
-        assertEquals(testContact.getPhoneNumber(), "1198838383891");
+        assertEquals("testSetPhoneNumber fail", testContact.getPhoneNumber(), "1198838383891");
     }
 
     @Test
     public void testSetAddress() {
         testContact.setAddress("Beijing China");
 
-        assertEquals(testContact.getAddress(), "Beijing China");
+        assertEquals("testSetAddress fail", testContact.getAddress(), "Beijing China");
     }
 }
