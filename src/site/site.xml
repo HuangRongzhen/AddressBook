@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Address book">
+  <bannerLeft>
+    <name>Address book</name>
+    <src>images/banner.png</src>
+  </bannerLeft>
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-stylus-skin</artifactId>
+    <version>1.2</version>
+  </skin>
+  <body>
+    <links>
+      <item name="Apache" href="http://www.apache.org/" />
+      <item name="Maven 3" href="http://maven.apache.org/" />
+    </links>
+
+    <menu name="Overview">
+      <item name="Introduction" href="index.html" />
+    </menu>
+    <menu name="Development">
+      <item name="Javadoc" href="apidocs/index.html" />
+    </menu>
+    <menu ref="reports"/>
+  </body>
+</project>
