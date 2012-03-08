@@ -86,7 +86,7 @@ public class Storage {
 
         try {
             document = convertContactsToXMLDocument();
-            data = ContactUtil.XMLtoString(document);
+            data = ContactUtil.xmlToString(document);
 
             // Save to file
             FileWriter writer = new FileWriter(filename);
@@ -137,11 +137,6 @@ public class Storage {
      * 
      */
     public void loadData() throws IOException {
-        // BufferedReader reader = new BufferedReader(new FileReader(filename));
-        // String line;
-        // while ((line = reader.readLine()) != null) {
-        // listContacts.add(getContactFromString(line));
-        // }
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             try {
@@ -160,13 +155,7 @@ public class Storage {
         }
     }
 
-    private static Contact getContactFromData(NodeList nodeList) {
-        // String[] parts = nodeList.split("\t");
-        //
-        // return new Contact(parts[0], // name
-        // parts[1], // phoneNumber
-        // parts[2] // address
-        // );
+    private Contact getContactFromData(NodeList nodeList) {
         return new Contact(nodeList.item(1).getTextContent(), // name
                 nodeList.item(3).getTextContent(), // phoneNumber
                 nodeList.item(5).getTextContent() // address

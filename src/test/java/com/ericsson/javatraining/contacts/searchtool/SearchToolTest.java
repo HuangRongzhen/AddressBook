@@ -30,7 +30,6 @@ public class SearchToolTest {
      */
     @Before
     public void setUp() throws Exception {
-        //testStorage = new Storage("TestContacts.txt");        
         testStorage = new Storage("TestContacts.xml");
     }
 
@@ -43,31 +42,37 @@ public class SearchToolTest {
     }
 
     /**
-     * Test method for {@link com.ericsson.javatraining.contacts.searchtool.SearchTool#getSearchRecordsString(java.lang.String, com.ericsson.javatraining.contacts.storage.Storage)}.
-     * @throws IOException 
+     * Test method for
+     * {@link com.ericsson.javatraining.contacts.searchtool.SearchTool#getSearchRecordsString(java.lang.String, com.ericsson.javatraining.contacts.storage.Storage)}
+     * .
+     * 
+     * @throws IOException
      */
     @Test
-    public final void testSearchRecordsWithNoRecord() throws IOException {
+    public void testSearchRecordsWithNoRecord() throws IOException {
         String searchResult;
         testStorage.loadData();
-        searchResult = SearchTool.getSearchRecordsString("NoSuchName", testStorage);       
- 
+        searchResult = SearchTool.getSearchRecordsString("NoSuchName", testStorage);
+
         assertEquals(searchResult, "Record not found.");
     }
-    
+
     /**
-     * Test method for {@link com.ericsson.javatraining.contacts.searchtool.SearchTool#getSearchRecordsString(java.lang.String, com.ericsson.javatraining.contacts.storage.Storage)}.
-     * @throws IOException 
+     * Test method for
+     * {@link com.ericsson.javatraining.contacts.searchtool.SearchTool#getSearchRecordsString(java.lang.String, com.ericsson.javatraining.contacts.storage.Storage)}
+     * .
+     * 
+     * @throws IOException
      */
     @Test
-    public final void testSearchRecordsWithRecordFound() throws IOException {
-        String testContactRecord = null; 
-        
+    public void testSearchRecordsWithRecordFound() throws IOException {
+        String testContactRecord = null;
+
         testStorage.loadData();
         testContactRecord = SearchTool.getSearchRecordsString("Alex", testStorage);
-        assertEquals(testContactRecord, "Name\tPhoneNumber\tAddress\nAlex\t123456\tA street room5\n"); 
+        assertEquals(testContactRecord, "Name\tPhoneNumber\tAddress\nAlex\t123456\tA street room5\n");
     }
-    
+
     /**
      * Sorry but this is used to show off PowerMock and to get higher coverage.
      * 

@@ -38,7 +38,7 @@ public final class ContactUtil {
         super();
     }
 
-    public static String XMLtoString(Document document) {
+    public static String xmlToString(Document document) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
         try {

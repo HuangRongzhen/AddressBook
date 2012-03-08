@@ -18,41 +18,41 @@ import com.ericsson.javatraining.contacts.util.ContactUtil;
  * 
  * @author eronhua
  */
-public class SearchTool {
-    
+public final class SearchTool {
+
     public static List<Contact> getSearchObject(String searchKey, Storage storage) {
         List<Contact> searchedContacts = new ArrayList<Contact>();
-        
+
         for (Contact contact : storage.getContacts()) {
             if (contact.toString().contains(searchKey)) {
                 searchedContacts.add(contact);
             }
         }
-        
-        return searchedContacts;        
+
+        return searchedContacts;
     }
-    
+
     public static String getSearchRecordsString(String searchKey, Storage storage) {
         String result = "Name" + "\t" + "PhoneNumber" + "\t" + "Address" + "\n";
         List<Contact> searchedContacts = new ArrayList<Contact>();
         int recordCount = 0;
-        
-        searchedContacts = getSearchObject(searchKey, storage);        
-        
+
+        searchedContacts = getSearchObject(searchKey, storage);
+
         for (Contact contact : searchedContacts) {
             if (contact.toString().contains(searchKey)) {
                 result = result + ContactUtil.getContactString(contact) + "\n";
-                recordCount ++;
+                recordCount++;
             }
         }
-        
-        if (0 == recordCount){
+
+        if (0 == recordCount) {
             result = "Record not found.";
         }
 
         return result;
     }
-    
+
     private SearchTool() {
         super();
     }

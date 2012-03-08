@@ -125,7 +125,7 @@ public class ContactFrame extends JFrame {
     public void setOutputBox(String content) {
         outPutBox.setText(content);
     }
-    
+
     public void appendOutputBox(String content) {
         outPutBox.append(content);
     }
@@ -176,7 +176,7 @@ public class ContactFrame extends JFrame {
             }
 
             setOutputBox("Start to remove contact......\n");
-            
+
             for (int i = 0; i < contactsList.size(); i++) {
                 if (contactsList.get(i).toString().contains(searchKey)) {
                     String outPutString = "Remove contact:\nname:" + contactsList.get(i).getName() + "\tPhone Number:" + contactsList.get(i).getPhoneNumber()
@@ -188,13 +188,13 @@ public class ContactFrame extends JFrame {
                     deleteCounter++;
                 }
             }
-            
+
             if (0 == deleteCounter) {
                 appendOutputBox("No record is deleted.\n");
             }
-            
+
             appendOutputBox("Finished.");
-            
+
             try {
                 storage.saveData();
             } catch (IOException e1) {

@@ -33,8 +33,8 @@ public class Contact {
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
+
     @Override
-    
     public String toString() {
         return getName() + " " + getPhoneNumber() + " " + getAddress();
     }
@@ -104,8 +104,8 @@ public class Contact {
      * 
      * Parameters:
      * 
-     * @param phone number
-     *            -phone number you want to get
+     * @param phone number 
+	 *            -phone number you want to get
      */
     public String getPhoneNumber() {
         return phoneNumber;

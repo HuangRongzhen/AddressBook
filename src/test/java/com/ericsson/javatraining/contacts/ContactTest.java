@@ -19,6 +19,7 @@ import org.junit.Test;
  */
 public class ContactTest {
     private Contact testContact;
+
     /**
      * @throws java.lang.Exception
      */
@@ -35,30 +36,30 @@ public class ContactTest {
     }
 
     @Test
-    public final void testContactBuildup() {
+    public void testContactBuildup() {
         assertEquals(testContact.getName(), "TestName");
         assertEquals(testContact.getPhoneNumber(), "123456789011");
-        assertEquals(testContact.getAddress(), "Shanghai China" );
+        assertEquals(testContact.getAddress(), "Shanghai China");
     }
-    
+
     @Test
-    public final void testSetName() {
+    public void testSetName() {
         testContact.setName("Modified name");
-        
+
         assertEquals(testContact.getName(), "Modified name");
     }
-    
+
     @Test
-    public final void testSetPhoneNumber() {
+    public void testSetPhoneNumber() {
         testContact.setPhoneNumber("1198838383891");
-        
+
         assertEquals(testContact.getPhoneNumber(), "1198838383891");
     }
-    
+
     @Test
-    public final void testSetAddress() {
+    public void testSetAddress() {
         testContact.setAddress("Beijing China");
-        
+
         assertEquals(testContact.getAddress(), "Beijing China");
     }
 }
