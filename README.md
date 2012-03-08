@@ -2,7 +2,7 @@
 
 Use <em>mvn install</em> to build the project.  
 
-Use <em>mvn</em> site to generate the maven site. 
+Use <em>mvn</em> site to generate the maven site(maven 3.0 is required). 
 
 Coverage report is in the maven site: Project Reports -> Cobertura Test Coverage
 
