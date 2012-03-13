@@ -30,8 +30,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import com.ericsson.javatraining.contacts.Contact;
@@ -42,19 +40,16 @@ import com.ericsson.javatraining.contacts.searchtool.SearchTool;
  * @author eronhua
  */
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({ Storage.class, LoggerFactory.class, DocumentBuilderFactory.class })
+@PrepareForTest({ Storage.class, DocumentBuilderFactory.class })
 public class StorageTest {
     private Storage testStorage;
     private final FileWriter mockFileWriter = mock(FileWriter.class);
-    private static final Logger mockLogger = mock(Logger.class);
 
     /**
      * @throws java.lang.Exception
      */
     @Before
     public void setUp() throws Exception {
-        mockStatic(LoggerFactory.class);
-        when(LoggerFactory.getLogger(Storage.class)).thenReturn(mockLogger);
         testStorage = new Storage(StorageTest.class.getResource("TestContacts.xml").getFile());
     }
 

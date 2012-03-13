@@ -15,6 +15,7 @@ cobertura.ser
 a.out
 pk_build_error.log*
 watcher
+Contacts.xml
 
 #composer
 .dupclasspath
@@ -56,3 +57,4 @@ target/
 .ccache
 cobertura
 junit_output
+logs

@@ -9,11 +9,8 @@ package com.ericsson.javatraining.contacts.util;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static org.powermock.reflect.Whitebox.invokeConstructor;
@@ -35,8 +32,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 import com.ericsson.javatraining.contacts.Contact;
@@ -46,9 +41,8 @@ import com.ericsson.javatraining.contacts.Contact;
  * @author eronhua
  */
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({ ContactUtil.class, LoggerFactory.class, TransformerFactory.class })
+@PrepareForTest({ ContactUtil.class, TransformerFactory.class })
 public class ContactUtilTest {
-    private static final Logger mockLogger = mock(Logger.class);
     private DocumentBuilder builder;
     private Document document;
     private TransformerFactory transformerFactory;
@@ -59,8 +53,6 @@ public class ContactUtilTest {
      */
     @Before
     public void setUp() throws Exception {
-        mockStatic(LoggerFactory.class);
-        when(LoggerFactory.getLogger(ContactUtil.class)).thenReturn(mockLogger);
 
         builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         document = builder.parse(ContactUtilTest.class.getResource("TestContacts.xml").getFile());
@@ -106,7 +98,6 @@ public class ContactUtilTest {
         when(mockTransformerFactory.newTransformer()).thenThrow(testTransformerConfigurationException);
 
         ContactUtil.xmlToString(document);
-        verify(mockLogger).error(anyString(), eq(testTransformerConfigurationException));
     }
 
     /**
@@ -126,8 +117,6 @@ public class ContactUtilTest {
         doThrow(testTransformerException).when(mockTransformer).transform(any(Source.class), any(Result.class));
 
         ContactUtil.xmlToString(document);
-        verify(mockLogger).error(anyString(), eq(testTransformerException));
-
     }
 
     /**
