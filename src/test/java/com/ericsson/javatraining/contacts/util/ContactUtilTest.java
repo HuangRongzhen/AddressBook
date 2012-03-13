@@ -63,7 +63,7 @@ public class ContactUtilTest {
         when(LoggerFactory.getLogger(ContactUtil.class)).thenReturn(mockLogger);
 
         builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        document = builder.parse("TestContacts.xml");
+        document = builder.parse(ContactUtilTest.class.getResource("TestContacts.xml").getFile());
         document.normalize();
 
         transformerFactory = TransformerFactory.newInstance();
