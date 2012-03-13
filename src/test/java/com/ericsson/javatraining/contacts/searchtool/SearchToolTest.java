@@ -30,7 +30,7 @@ public class SearchToolTest {
      */
     @Before
     public void setUp() throws Exception {
-        testStorage = new Storage("TestContacts.xml");
+        testStorage = new Storage(SearchToolTest.class.getResource("TestContacts.xml").getFile());
     }
 
     /**

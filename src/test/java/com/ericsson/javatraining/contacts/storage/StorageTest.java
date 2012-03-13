@@ -55,7 +55,7 @@ public class StorageTest {
     public void setUp() throws Exception {
         mockStatic(LoggerFactory.class);
         when(LoggerFactory.getLogger(Storage.class)).thenReturn(mockLogger);
-        testStorage = new Storage("TestContacts.xml");
+        testStorage = new Storage(StorageTest.class.getResource("TestContacts.xml").getFile());
     }
 
     /**
